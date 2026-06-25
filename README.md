@@ -441,10 +441,168 @@ curl http://localhost:5000/api/debug/test/octocat
 curl http://localhost:5000/api/debug/search?q=octo
 ```
 
-### Using Postman
-1. Import the Postman collection
-2. Test each endpoint with sample requests
-3. Save responses for verification
+---
+
+## 🧪 Testing with Postman
+
+### Option 1: Import the Collection (Recommended)
+
+The Postman collection JSON file is available in this repository:
+
+📁 **File:** `GitHub-Profile-Analyzer.postman_collection.json`
+
+**How to import:**
+1. Open Postman
+2. Click **"Import"** button (top left)
+3. Choose **"File"** and select the downloaded JSON file
+4. Click **"Import"**
+5. The collection will appear in your Collections tab
+
+**OR**
+
+**Copy the raw JSON:**
+1. Go to the file in GitHub: `https://github.com/SiddharthSanjay2005/github-profile-analyzer/blob/main/GitHub-Profile-Analyzer.postman_collection.json`
+2. Click **"Raw"**
+3. Copy all the JSON
+4. In Postman, click **"Import"** → **"Raw text"**
+5. Paste the JSON and click **"Import"**
+
+---
+
+### Option 2: Manual Setup
+
+**Create Environment Variables:**
+1. In Postman, click **"Environments"**
+2. Click **"New Environment"**
+3. Name it: `GitHub API Local`
+4. Add these variables:
+   - Variable: `baseUrl` | Value: `http://localhost:5000`
+   - Variable: `username` | Value: `octocat`
+5. Click **"Save"**
+
+**Create Collection:**
+1. Click **"New"** → **"Collection"**
+2. Name it: `GitHub Profile Analyzer API`
+3. Click **"Create"**
+
+**Add Requests:**
+
+| Request Name | Method | URL |
+|--------------|--------|-----|
+| Health Check | GET | `{{baseUrl}}/health` |
+| Analyze Profile | GET | `{{baseUrl}}/api/analyze/{{username}}` |
+| Get All Profiles | GET | `{{baseUrl}}/api/profiles` |
+| Get Single Profile | GET | `{{baseUrl}}/api/profile/{{username}}` |
+| Get Profile Stats | GET | `{{baseUrl}}/api/stats/{{username}}` |
+| Debug - Test User | GET | `{{baseUrl}}/api/debug/test/{{username}}` |
+| Debug - Connection | GET | `{{baseUrl}}/api/debug/connection` |
+| Debug - Search | GET | `{{baseUrl}}/api/debug/search?q=octo` |
+
+---
+
+### Option 3: Quick Testing Without Postman
+
+If you don't want to use Postman, you can test using cURL commands in your terminal:
+
+```bash
+# Health Check
+curl http://localhost:5000/health
+
+# Analyze Profile
+curl http://localhost:5000/api/analyze/octocat
+
+# Get All Profiles
+curl http://localhost:5000/api/profiles
+
+# Get Single Profile
+curl http://localhost:5000/api/profile/octocat
+
+# Get Profile Stats
+curl http://localhost:5000/api/stats/octocat
+```
+
+---
+
+### Postman Collection Details
+
+The collection includes the following 8 endpoints:
+
+| # | Endpoint | Method | Description |
+|---|----------|--------|-------------|
+| 1 | `/health` | GET | Health check |
+| 2 | `/api/analyze/:username` | GET | Analyze GitHub profile |
+| 3 | `/api/profiles` | GET | Get all profiles |
+| 4 | `/api/profile/:username` | GET | Get single profile |
+| 5 | `/api/stats/:username` | GET | Get profile statistics |
+| 6 | `/api/debug/test/:username` | GET | Test user existence |
+| 7 | `/api/debug/connection` | GET | Test GitHub API |
+| 8 | `/api/debug/search` | GET | Search GitHub users |
+
+### Testing Steps
+
+1. **Start the server**:
+   ```bash
+   npm run dev
+   ```
+
+2. **Open Postman** (Desktop App or Web)
+
+3. **Import the collection** or **set up manually**
+
+4. **Select the environment** (`GitHub API Local`)
+
+5. **Send requests** starting with Health Check
+
+6. **Analyze a profile**: Change the `username` variable to any GitHub username
+
+7. **View results** in JSON format
+
+### Expected Response Example
+
+When you test `GET /api/analyze/octocat`, you should see:
+
+```json
+{
+    "success": true,
+    "message": "Profile for octocat analyzed successfully",
+    "data": {
+        "profile": {
+            "username": "octocat",
+            "avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4",
+            "bio": "No bio available",
+            "public_repos": 8,
+            "followers": 23072,
+            "following": 9,
+            "total_stars": 21600,
+            "total_forks": 165069,
+            "total_watchers": 21600,
+            "languages_used": "CSS(1), HTML(1), Ruby(1)",
+            "top_repositories": "Spoon-Knife(13856⭐), Hello-World(3654⭐), octocat.github.io(1116⭐), hello-worId(759⭐), linguist(725⭐)",
+            "account_age_days": 5628,
+            "profile_created_at": "2011-01-26 00:14:36",
+            "profile_updated_at": "2026-06-22 17:02:20"
+        },
+        "history": [...]
+    }
+}
+```
+
+### Postman Collection File
+
+The collection is exported as `GitHub-Profile-Analyzer.postman_collection.json` and includes:
+- All 8 API endpoints
+- Environment variables for baseUrl and username
+- Sample requests with pre-filled data
+- No authentication required (public API)
+
+**How to Access the Collection:**
+1. View the file in GitHub: `https://github.com/SiddharthSanjay2005/github-profile-analyzer/blob/main/GitHub-Profile-Analyzer.postman_collection.json`
+2. Or download the file from the repository
+3. Import into Postman
+
+**Note:** The collection uses localhost (http://localhost:5000) as the base URL. Make sure the server is running before testing.
+
+---
 
 ### Using Browser
 Simply type the URLs in your browser:
