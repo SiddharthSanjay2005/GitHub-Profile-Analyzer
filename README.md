@@ -98,11 +98,10 @@ github-profile-analyzer/
 │   └── server.js                # Server entry point
 │
 ├── .env                         # Environment variables (NOT committed)
-├── .env.example                 # Environment variables template
 ├── .gitignore                   # Git ignore rules
 ├── package.json                 # Dependencies and scripts
 ├── package-lock.json            # Locked dependencies
-├── Github project.sql           # Database schema
+├── GitHub Project.sql           # Database schema
 ├── README.md                    # Project documentation
 ├── test.js                      # Test script
 └── test-api.js                  # API test script
@@ -172,7 +171,7 @@ CREATE TABLE analysis_history (
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/github-profile-analyzer.git
+git clone https://github.com/Ur_Specific_Username/github-profile-analyzer.git
 cd github-profile-analyzer
 ```
 
@@ -184,7 +183,7 @@ npm install
 ### Step 3: Configure Environment Variables
 Create a `.env` file in the root directory:
 ```bash
-cp .env.example .env
+cp .env
 ```
 
 Then edit `.env` with your credentials:
@@ -205,7 +204,7 @@ GITHUB_API_URL=https://api.github.com
 ### Step 4: Set Up Database
 Import the database schema:
 ```bash
-mysql -u root -p < Github\ project.sql
+mysql -u root -p < GitHub\ Project.sql
 ```
 
 Or manually in MySQL Workbench:
@@ -251,7 +250,7 @@ You should see:
 | `GITHUB_API_URL` | GitHub API URL | No | https://api.github.com |
 | `GITHUB_TOKEN` | GitHub personal access token | No | - |
 
-> **⚠️ Important**: Never commit `.env` file to version control. `.env.example` is provided as a template.
+> **⚠️ Important**: Never commit `.env` file to version control.
 
 ---
 
@@ -659,7 +658,7 @@ git commit -m "Initial commit: GitHub Profile Analyzer API"
 
 # Create repository on GitHub
 # Then push
-git remote add origin https://github.com/YOUR_USERNAME/github-profile-analyzer.git
+git remote add origin https://github.com/URr_Specific_Username/github-profile-analyzer.git
 git branch -M main
 git push -u origin main
 ```
@@ -732,7 +731,7 @@ For any issues or questions, please:
 1. Check the troubleshooting section above
 2. Review the code documentation
 3. Create an issue on GitHub
-4. Contact the developer
+4. Contact the developer (Siddharth)
 
 ---
 
