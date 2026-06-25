@@ -461,7 +461,7 @@ The Postman collection JSON file is available in this repository:
 **OR**
 
 **Copy the raw JSON:**
-1. Go to the file in GitHub: `https://github.com/SiddharthSanjay2005/github-profile-analyzer/blob/main/GitHub-Profile-Analyzer.API.postman_collection.json`
+1. Go to the file in GitHub: `https://github.com/SiddharthSanjay2005/github-profile-analyzer/blob/main/GitHub-Profile-Analyzer-API.postman_collection.json`
 2. Click **"Raw"**
 3. Copy all the JSON
 4. In Postman, click **"Import"** → **"Raw text"**
